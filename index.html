@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ajay Bhatt | Content Manager | YouTube Growth & Video Production Specialist</title>
+  <meta name="description" content="Ajay Bhatt — Content Manager with 10+ years of experience. Scaled YouTube channels to 2.2M+ subscribers and 272M+ views. Expert in video production, content strategy, team leadership, and AI workflow automation. Based in Bengaluru.">
+  <meta name="keywords" content="Ajay Bhatt, Content Manager, YouTube Channel Management, Video Producer, SIFF Ventures, Parikshe SSLC, Content Strategy, Digital Content Operations, Team Leadership, Bengaluru, AI Workflow, n8n Automation, Sports Photography">
+  <meta name="author" content="Ajay Bhatt">
+  <meta property="og:title" content="Ajay Bhatt | Content Manager & Video Production Specialist">
+  <meta property="og:description" content="10+ years experience. 2.2M+ subscribers. 272M+ views. Content Manager specializing in YouTube growth, video production & team leadership.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card-dark: #181818;
+      --white: #f0ece4;
+      --cream: #e8e2d5;
+      --orange: #e8622a;
+      --orange-dark: #c9521f;
+      --gray: #888;
+      --light-bg: #f0efed;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: clip;
+      /* clip instead of hidden to keep position:sticky working */
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 2rem;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #f0a500;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-cta {
+      background: #ff5c00;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: white;
+      transition: all 0.3s;
+    }
+
+    /* ─── SECTION 1: HERO ─── */
+    #hero {
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      padding-top: 70px;
+      margin: 0;
+      width: 100%;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .hero-text-wrap {
+      width: 100%;
+    }
+
+    .hero-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 15.3vw;
+      line-height: 0.85;
+      text-transform: uppercase;
+      color: #f0e8d8;
+      letter-spacing: -0.03em;
+      padding: 0.3rem 0 0.3rem 1.5rem;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(60px);
+      animation: heroIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+
+    @keyframes heroIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-photo-wrap {
+      width: calc(100% - 3rem);
+      height: 75vh;
+      margin: 0 1.5rem 1.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      opacity: 0;
+      animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+
+    #hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border-radius: 20px;
+    }
+
+
+    .hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.7) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Photo placeholder for hero */
+    .hero-photo-placeholder {
+      width: 100%;
+      min-height: 520px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--gray);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+
+    .hero-photo-placeholder svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.3;
+    }
+
+    .hero-photo-placeholder span {
+      opacity: 0.4;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    .hero-scroll-indicator .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--orange), transparent);
+    }
+
+    @keyframes scrollBounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    /* ─── SECTION 2: ABOUT ─── */
+    #about {
+      background: var(--dark);
+      padding: 8rem 3rem;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .about-big-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 3.5vw, 4rem);
+      text-transform: uppercase;
+      line-height: 1.15;
+      color: var(--cream);
+      text-align: center;
+      max-width: 100%;
+      white-space: normal;
+      margin: 0 auto 6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 2rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+      text-align: center;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-item:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: clamp(3rem, 6vw, 7.5rem);
+      color: var(--cream);
+      line-height: 1;
+      display: block;
+      text-align: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+      display: block;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ─── SECTION 3: WHAT I DO ─── */
+    #skills {
+      background: var(--light-bg);
+      padding: 8rem 3rem;
+    }
+
+    .skills-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #666;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .skills-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 10vw, 130px);
+      text-transform: uppercase;
+      text-align: center;
+      color: #111;
+      letter-spacing: -0.01em;
+      margin-bottom: 4rem;
+      line-height: 0.95;
+    }
+
+    .skills-list {
+      max-width: 1400px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    .skill-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 24px 32px;
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      background: transparent;
+      transition: background 0.3s;
+      gap: 5%;
+    }
+
+    .skill-row:last-child {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .skill-left-col {
+      flex: 0 0 45%;
+      max-width: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .skill-title-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      height: 30px;
+    }
+
+    .skill-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+      color: #111;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+
+    .skill-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+      text-transform: uppercase;
+      color: #111;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    /* Right column layout */
+    .skill-right-col {
+      flex: 0 0 50%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 40px;
+      align-self: flex-start;
+    }
+
+    .skill-arrow-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+    }
+
+    /* Plain arrow — no circle */
+    .skill-arrow {
+      font-size: 22px;
+      color: #444;
+      line-height: 1;
+      transition: transform 0.3s, color 0.3s;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    /* Hover expand */
+    .skill-row:hover {
+      background: #f5f5f5;
+    }
+
+    .skill-row:hover .skill-name {
+      color: #111;
+    }
+
+    .skill-row:hover .skill-arrow {
+      transform: rotate(-90deg);
+    }
+
+    .skill-desc-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .skill-row:hover .skill-desc-container {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    .skill-desc {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-top: 24px;
+      margin-bottom: 0;
+    }
+
+    .skill-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .skill-stat-box {
+      background: rgba(255, 92, 0, 0.08);
+      border: 1px solid rgba(255, 92, 0, 0.2);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .skill-stat-num {
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .skill-stat-label {
+      color: #666;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+    }
+
+    .skill-highlights {
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+    }
+
+    .skill-highlight-item {
+      color: #555;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .skill-img-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      margin-left: auto;
+      margin-right: 0;
+      align-self: center;
+    }
+
+    .skill-row:hover .skill-img-container {
+      max-height: 240px;
+      opacity: 1;
+    }
+
+    .skill-img {
+      background: #e8e8e8;
+      border-radius: 12px;
+      width: 380px;
+      height: 240px;
+      flex-shrink: 0;
+      display: block;
+      overflow: hidden;
+    }
+
+    .skill-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+
+    /* ─── ADDITIONAL SKILLS ─── */
+    #additional-skills {
+      background: var(--light-bg);
+      padding: 60px 80px 120px 80px;
+      position: relative;
+    }
+
+    .additional-skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+    }
+
+    .skill-pill {
+      background: rgba(255, 92, 0, 0.1);
+      border: 1px solid rgba(255, 92, 0, 0.3);
+      color: #ff5c00; /* Used orange instead of cream so it's visible on the light background */
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill-pill:hover {
+      background: #ff5c00;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      #additional-skills {
+        padding: 40px 20px 80px 20px;
+      }
+    }
+
+    /* ─── SECTION 4: FEATURED WORK ─── */
+    #work {
+      position: relative;
+    }
+
+    /* Tall scroll container — 4 cards × 100vh each */
+    .work-scroll-container {
+      height: 400vh;
+      position: relative;
+      overflow-x: clip;
+      /* clip (not hidden!) so position:sticky children still work */
+    }
+
+    /* Sticky wrapper that stays in view while the container scrolls */
+    .work-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: visible;
+      /* must be visible so offset cards show */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #e3f4ef;
+      /* default = card 1 colour, overridden by JS */
+      transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Marquee sits behind cards, absolutely in the vertical middle */
+    .work-marquee-layer {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeScroll 22s linear infinite;
+    }
+
+    .marquee-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 9vw, 10rem);
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.08);
+      letter-spacing: 0.02em;
+      padding-right: 2rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .marquee-dot {
+      padding: 0 0.75rem;
+    }
+
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Horizontal card rail */
+    .work-cards-rail {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    /* Individual work card — starts centred, JS offsets from there */
+    .work-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: clamp(360px, 42vw, 600px);
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+      will-change: transform, opacity;
+      transform: translateX(-50%) translateY(-50%);
+      transform-origin: center center;
+      margin-right: 24px;
+      cursor: pointer;
+    }
+
+    .work-card-visual {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Inner 'screen' inset inside gradient bg */
+    .work-card-screen {
+      position: absolute;
+      inset: 8% 10%;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+    }
+
+    .work-card-play {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: white;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .work-card:hover .work-card-play {
+      transform: scale(1.12);
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .work-card-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 2rem;
+      background: white;
+    }
+
+    .work-card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #111;
+      letter-spacing: 0.02em;
+    }
+
+    .work-card-sub {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .work-card-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .work-card-btn:hover {
+      background: var(--orange-dark);
+      transform: scale(1.1);
+    }
+
+    /* Dot pagination */
+    .work-dots {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.6rem;
+      z-index: 2;
+    }
+
+    .work-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .work-dot.active {
+      background: rgba(0, 0, 0, 0.6);
+      transform: scale(1.3);
+    }
+
+    /* ─── SECTION 5: TESTIMONIALS ─── */
+    #testimonials {
+      position: relative;
+      height: 500vh;
+      min-height: 100vh;
+      background: var(--black);
+    }
+
+    .testimonials-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonials-sticky .section-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .testimonials-title {
+      position: sticky;
+      top: 40%;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 900;
+      color: #f5f0e8;
+      line-height: 1;
+      margin: 20px 0 40px 0;
+      text-transform: uppercase;
+      z-index: 5;
+    }
+
+    .testimonials-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .t-card {
+      position: absolute;
+      width: 540px;
+      padding: 50px;
+      border-radius: 16px;
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      z-index: 10;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      pointer-events: auto;
+      will-change: transform, opacity;
+    }
+
+    .quote {
+      font-size: 36px;
+      font-weight: 900;
+      display: block;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    .quote-text {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .client-name {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #1a1a1a;
+    }
+
+    .client-role {
+      font-size: 12px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .t-card {
+        width: 90vw;
+        padding: 30px;
+        left: 50%;
+        top: 45%;
+      }
+
+      .quote-text {
+        font-size: 14px;
+      }
+    }
+
+    /* ─── SECTION 6: COMPANIES ─── */
+    #companies {
+      background: var(--black);
+      padding: 8rem 3rem;
+    }
+
+    .companies-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .companies-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 7rem);
+      text-transform: uppercase;
+      color: var(--cream);
+      text-align: center;
+      letter-spacing: -0.01em;
+      line-height: 0.95;
+      margin-bottom: 5rem;
+    }
+
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .company-card {
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+
+    .company-card:hover {
+      background: #242424;
+      border-color: rgba(232, 98, 42, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .company-card.cta-card {
+      background: var(--orange);
+      border-color: transparent;
+      flex-direction: column;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .company-card.cta-card:hover {
+      background: var(--orange-dark);
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .company-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: var(--cream);
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    .cta-card .company-name {
+      color: white;
+      font-size: 1rem;
+    }
+
+    .cta-card-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    /* ─── SECTION 7: FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 5rem 3rem 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-social-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      width: fit-content;
+    }
+
+    .footer-social-link:hover {
+      color: var(--white);
+    }
+
+    .footer-social-link .arrow {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .footer-social-link:hover .arrow {
+      transform: translate(3px, -3px);
+      opacity: 1;
+    }
+
+    .footer-cta-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .lets-talk-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lets-talk-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 7vw, 7rem);
+      text-transform: uppercase;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+
+    .lets-talk-badge {
+      width: 90px;
+      height: 90px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: white;
+      margin: 0 -0.5rem;
+      position: relative;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.3s;
+      text-decoration: none;
+    }
+
+    .lets-talk-badge:hover {
+      background: var(--orange-dark);
+      transform: scale(1.08) rotate(15deg);
+    }
+
+    /* Star badge shape */
+    .lets-talk-badge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--orange);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-align: right;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+
+    .footer-nav-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .footer-nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-nav-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.15s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.45s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.6s;
+    }
+
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--orange);
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .companies-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-tagline {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-text-wrap {
+        padding: 2.5rem 1.5rem 1.5rem;
+      }
+
+      .hero-photo-wrap {
+        margin: 0 1.5rem;
+      }
+
+      #about,
+      #skills,
+      #companies,
+      footer {
+        padding: 5rem 1.5rem;
+      }
+
+      .cards-section {
+        padding: 4rem 1.5rem 6rem;
+      }
+
+      #testimonials {
+        padding: 5rem 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .companies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill-row {
+        flex-direction: column;
+        padding: 20px 16px;
+        gap: 0;
+      }
+
+      .skill-left-col {
+        max-width: 100%;
+        flex: 1;
+      }
+
+      .skill-name,
+      .skill-num {
+        font-size: 1.3rem;
+      }
+
+      .skill-right-col {
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .skill-arrow-container {
+        display: none;
+      }
+
+      .skill-img-container {
+        width: 100%;
+      }
+
+      .skill-img {
+        width: 100%;
+        height: 200px;
+      }
+
+      .cards-viewport {
+        height: 500px;
+      }
+
+      .work-card-gradient {
+        height: 350px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        justify-items: center;
+      }
+
+      .footer-nav-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .companies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">AB.</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="work.html">WORK</a></li>
+        <li><a href="photography.html">PHOTOGRAPHY</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">LET'S TALK</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="work.html" onclick="toggleMenu()">Work</a>
+    <a href="photography.html" onclick="toggleMenu()">Photography</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- ═══════════ SECTION 1: HERO ═══════════ -->
+  <section id="hero">
+    <div class="hero-text-wrap">
+      <h1 class="hero-heading">HI I'M AJAY BHATT</h1>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <img src="hero-photo.png" id="hero-photo" alt="Ajay Bhatt">
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 2: ABOUT ═══════════ -->
+  <section id="about">
+    <p class="section-label reveal">• About Me</p>
+    <p class="about-big-text reveal reveal-delay-1">
+      I'M A CONTENT MANAGER WITH 10+ YEARS OF EXPERIENCE<br>IN DIGITAL CONTENT OPERATIONS, YOUTUBE CHANNEL SCALING AND
+      WORKFLOW LEADERSHIP.
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-number" data-count="9000" data-suffix="+">0</span>
+        <span class="stat-label">Videos Delivered</span>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <span class="stat-number" data-count="272" data-suffix="M+">0</span>
+        <span class="stat-label">Total Views</span>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <span class="stat-number" data-count="10" data-suffix="+">0</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <span class="stat-number" data-count="2.2" data-suffix="M+">0</span>
+        <span class="stat-label">Subscribers Grown</span>
+      </div>
+      <div class="stat-item reveal reveal-delay-4">
+        <span class="stat-number" data-count="18" data-suffix="">0</span>
+        <span class="stat-label">Team Members Led</span>
+      </div>
+    </div>
+
+    <p class="reveal reveal-delay-2" style="text-align: center; font-size: 14px; color: #888; max-width: 600px; margin: 60px auto 0; font-style: italic; line-height: 1.6;">
+      This portfolio primarily showcases my current work at SIFF Ventures. To explore my other projects and collaborations, visit the <a href="work.html" style="color: #ff5c00; text-decoration: underline;">Work section</a>.
+    </p>
+  </section>
+
+  <!-- ═══════════ SECTION 3: WHAT I DO ═══════════ -->
+  <section id="skills">
+    <p class="skills-label reveal">• What I Do</p>
+    <h2 class="skills-heading reveal reveal-delay-1">Skills I Provide</h2>
+
+    <ul class="skills-list">
+
+      <li class="skill-row" id="skill-1">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">01.</span>
+            <span class="skill-name">YouTube Channel Management</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Growing YouTube channels from zero to hundreds of thousands of subscribers through
+              strategic content planning, publishing systems, and QC workflows.</p>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-img-container">
+            <div class="skill-img">
+              <img src="skill-youtube.jpg" alt="YouTube Channel Management">
+            </div>
+          </div>
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-2">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">02.</span>
+            <span class="skill-name">Content Strategy &amp; Planning</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Creating content calendars, SOPs, and delivery systems that scale production from a
+              few videos to <span data-channel="combined" data-stat="total_videos">9,000+</span> without losing quality.</p>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-img-container">
+            <div class="skill-img">
+              <img src="skill-content.jpg" alt="Content Strategy &amp; Planning">
+            </div>
+          </div>
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-3">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">03.</span>
+            <span class="skill-name">Team Leadership &amp; Training</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Leading 18-member production teams and training 30+ OLFs on camera operations, OBS
+              Studio, Zoom, and on-camera presence.</p>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-img-container">
+            <div class="skill-img">
+              <img src="skill-leadership.jpg" alt="Team Leadership &amp; Training">
+            </div>
+          </div>
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-4">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">04.</span>
+            <span class="skill-name">Workflow &amp; SOP Creation</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Documenting processes, building trackers, dashboards and approval systems that keep
+              complex productions on track.</p>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-img-container">
+            <div class="skill-img">
+              <img src="skill-workflow.jpg" alt="Workflow &amp; SOP Creation">
+            </div>
+          </div>
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-5">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">05.</span>
+            <span class="skill-name">OLF &amp; Team Training</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Training Online Lecture Faculty and team members on professional on-camera delivery,
+              technical tools, and broadcast best practices.</p>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-img-container">
+            <div class="skill-img">
+              <img src="skill-olf.jpg" alt="OLF &amp; Team Training">
+            </div>
+          </div>
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-6">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">06.</span>
+            <span class="skill-name">Instagram Management</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Managed and grew Instagram accounts for multiple YouTube channels — from content planning to viral reels. Built engaged communities across education-based brands.</p>
+            <div class="skill-stats-grid">
+              <div class="skill-stat-box">
+                <span class="skill-stat-num">85K</span>
+                <span class="skill-stat-label">SSLC Parikshe<br>2,239 posts</span>
+              </div>
+              <div class="skill-stat-box">
+                <span class="skill-stat-num">9,007</span>
+                <span class="skill-stat-label">PUC Science<br>546 posts</span>
+              </div>
+              <div class="skill-stat-box">
+                <span class="skill-stat-num">6,550</span>
+                <span class="skill-stat-label">PUC Commerce<br>371 posts</span>
+              </div>
+              <div class="skill-stat-box">
+                <span class="skill-stat-num">45.8K</span>
+                <span class="skill-stat-label">Siff Young Artiste<br>1,232 posts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-7">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">07.</span>
+            <span class="skill-name">Studio Setup &amp; Production</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">Conceptualized and executed 3 professional education-based studio setups from scratch — coordinating with outsource vendors to build fully equipped spaces for live classes, recorded sessions, podcasts, and high-quality video production. Also set up a dedicated Green Screen studio for creative productions.</p>
+            <ul class="skill-highlights">
+              <li class="skill-highlight-item"><span>🎬</span> <span><strong>3 Studios Built</strong> — End-to-end setup with vendors</span></li>
+              <li class="skill-highlight-item"><span>📡</span> <span><strong>Live &amp; Recorded Classes</strong> — Professional streaming setup</span></li>
+              <li class="skill-highlight-item"><span>🎙️</span> <span><strong>Podcast Studio</strong> — Dedicated podcast recording space</span></li>
+              <li class="skill-highlight-item"><span>🟩</span> <span><strong>Green Screen Studio</strong> — Creative production studio setup</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="skill-row" id="skill-8">
+        <div class="skill-left-col">
+          <div class="skill-title-line">
+            <span class="skill-num">08.</span>
+            <span class="skill-name">Photography &amp; Videography</span>
+          </div>
+          <div class="skill-desc-container">
+            <p class="skill-desc">From sports arenas to corporate boardrooms, I bring a sharp eye and technical precision to every shoot. My work spans sports events, corporate photography, documentaries, and high-profile government projects — including airport photography for the AAI (Airport Authority of India) Coffee Table Book, a prestigious project executed under ImagineIndia Corp Pvt Ltd (Rajiv Srivastava) — officially launched by Hon. Prime Minister of India, Shri Narendra Modi. Additionally, I have documented critical medical procedures through operation theatre videography and photography for leading hospitals.</p>
+            <ul class="skill-highlights">
+              <li class="skill-highlight-item"><span>🏅</span> <span><strong>Sports Photography</strong> — Worked with Star Sports, Sony ESPN, Ten Sports &amp; DA Sports for multi-sport photoshoots, executed under CameraWorx (Pradeep Mandani)</span></li>
+              <li class="skill-highlight-item"><span>🏛️</span> <span><strong>Government Projects</strong> — AAI Airport photography for PM Modi launched Coffee Table Book, executed under ImagineIndia Corp Pvt Ltd (Rajiv Srivastava)</span></li>
+              <li class="skill-highlight-item"><span>🎬</span> <span><strong>Documentary &amp; Corporate</strong> — Events, corporates &amp; documentary filmmaking</span></li>
+              <li class="skill-highlight-item"><span>🏥</span> <span><strong>Medical Documentation</strong> — Operation theatre videos &amp; hospital photography</span></li>
+            </ul>
+            <div style="margin-top: 24px;">
+              <a href="photography.html" style="color: #ff5c00; font-weight: bold; text-decoration: none;">View Photography Work →</a>
+            </div>
+          </div>
+        </div>
+        <div class="skill-right-col">
+          <div class="skill-arrow-container">
+            <span class="skill-arrow">↘</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ═══════════ ADDITIONAL SKILLS ═══════════ -->
+  <section id="additional-skills">
+    <p class="skills-label reveal">• Additional Skills</p>
+    <h2 class="skills-heading reveal reveal-delay-1">Also Proficient In</h2>
+    
+    <div class="additional-skills-tags reveal reveal-delay-2">
+      <a href="photography.html" class="skill-pill" style="text-decoration:none; cursor:pointer;">📸 Photography</a>
+      <a href="photography.html" class="skill-pill" style="text-decoration:none; cursor:pointer;">🎥 Videography</a>
+      <span class="skill-pill">✍️ Long-Form Scripting</span>
+      <span class="skill-pill">⚡ Short-Form Scripting</span>
+      <span class="skill-pill">🎬 Video Editing</span>
+      <span class="skill-pill">✨ Animation</span>
+      <span class="skill-pill">🎨 Graphic Designing</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 4: FEATURED WORK ═══════════ -->
+  <section id="work">
+    <div class="work-scroll-container" id="workScrollContainer">
+      <div class="work-sticky" id="workSticky">
+
+        <div style="position: absolute; top: 8vh; left: 0; width: 100%; text-align: center; z-index: 10;">
+          <p class="section-label" style="color: rgba(0,0,0,0.5); margin-bottom: 0.5rem; margin-top: 40px;">• My Work at SIFF Ventures</p>
+          <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #111; letter-spacing: 0.02em; text-transform: uppercase;">FEATURED WORK</h2>
+        </div>
+
+        <!-- Marquee behind cards -->
+        <div class="work-marquee-layer">
+          <div class="marquee-track">
+            <span class="marquee-text">FEATURED COLLABORATIONS <span class="marquee-dot">•</span> WORK WITH ME <span
+                class="marquee-dot">•</span></span>
+            <span class="marquee-text">FEATURED COLLABORATIONS <span class="marquee-dot">•</span> WORK WITH ME <span
+                class="marquee-dot">•</span></span>
+            <span class="marquee-text">FEATURED COLLABORATIONS <span class="marquee-dot">•</span> WORK WITH ME <span
+                class="marquee-dot">•</span></span>
+            <span class="marquee-text">FEATURED COLLABORATIONS <span class="marquee-dot">•</span> WORK WITH ME <span
+                class="marquee-dot">•</span></span>
+          </div>
+        </div>
+
+        <!-- Card rail -->
+        <div class="work-cards-rail" id="workCardsRail" style="margin-top: 40px;">
+
+          <!-- Card 1: Parikshe SSLC — green/teal -->
+          <div class="work-card" id="wcard-0" style="margin-right: 24px;">
+            <div class="work-card-visual"
+              onclick="window.open('https://www.youtube.com/@SSLCPARIKSHE', '_blank')"
+              style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 50%, #0a2e1a 100%); cursor:pointer;">
+              <div class="work-card-screen" style="overflow: hidden; padding: 0;">
+                <video autoplay loop muted playsinline style="width:100%; height:100%; 
+                         object-fit:cover; 
+                         border-radius:inherit;
+                         display:block;">
+                  <source src="sslc-logo.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="work-card-info" onclick="window.location.href='sslc-parikshe.html'" style="cursor:pointer;">
+              <div>
+                <div class="work-card-title">Parikshe SSLC</div>
+                <div class="work-card-sub">SIFF VENTURES | Content Manager</div>
+              </div>
+              <div class="work-card-btn" id="wcard-btn-0">↗</div>
+            </div>
+          </div>
+
+          <!-- Card 2: PUC Parikshe Science — orange/red -->
+          <div class="work-card" id="wcard-1" style="margin-right: 24px;">
+            <div class="work-card-visual"
+              onclick="window.open('https://www.youtube.com/@PUCPARIKSHE', '_blank')"
+              style="background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 50%, #4a0000 100%); cursor:pointer;">
+              <div class="work-card-screen" style="overflow: hidden; padding: 0;">
+                <video autoplay loop muted playsinline
+                  style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
+                  <source src="puc-science-logo.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="work-card-info" onclick="window.location.href='puc-science.html'" style="cursor:pointer;">
+              <div>
+                <div class="work-card-title">PUC Parikshe Science</div>
+                <div class="work-card-sub">SIFF VENTURES | Content Manager</div>
+              </div>
+              <div class="work-card-btn" id="wcard-btn-1">↗</div>
+            </div>
+          </div>
+
+          <!-- Card 3: PUC Parikshe Commerce — blue/purple -->
+          <div class="work-card" id="wcard-2" style="margin-right: 24px;">
+            <div class="work-card-visual"
+              onclick="window.open('https://www.youtube.com/@pucparikshecommerce', '_blank')"
+              style="background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 50%, #1a0033 100%); cursor:pointer;">
+              <div class="work-card-screen" style="overflow: hidden; padding: 0;">
+                <video autoplay loop muted playsinline
+                  style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
+                  <source src="puc-commerce-logo.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="work-card-info" onclick="window.location.href='puc-commerce.html'" style="cursor:pointer;">
+              <div>
+                <div class="work-card-title">PUC Parikshe Commerce</div>
+                <div class="work-card-sub">SIFF VENTURES | Content Manager</div>
+              </div>
+              <div class="work-card-btn" id="wcard-btn-2">↗</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Siff Young Artiste — yellow/orange -->
+          <div class="work-card" id="wcard-3" style="margin-right: 24px;">
+            <div class="work-card-visual"
+              onclick="window.location.href='siff-youngartiste.html'"
+              style="background: linear-gradient(135deg, #f7c948 0%, #f97316 50%, #1a0a00 100%); cursor:pointer;">
+              <div class="work-card-screen" style="overflow: hidden; padding: 0; background: none;">
+                <img src="siff-youngartiste.jpg" alt="Siff Young Artiste" style="width:100%; 
+                         height:100%; 
+                         object-fit:cover; 
+                         object-position:center center;
+                         transform:scale(1.0);
+                         border-radius:inherit;
+                         display:block;">
+              </div>
+            </div>
+            <div class="work-card-info" onclick="window.location.href='siff-youngartiste.html'" style="cursor:pointer;">
+              <div>
+                <div class="work-card-title">Siff Young Artiste</div>
+                <div class="work-card-subtitle" style="color: #666666;">SIFF VENTURES | Content Manager</div>
+              </div>
+              <div class="work-card-btn" id="wcard-btn-3">↗</div>
+            </div>
+          </div>
+
+        </div><!-- /rail -->
+
+        <!-- Dot pagination -->
+        <div class="work-dots" id="workDots">
+          <div class="work-dot active" data-idx="0"></div>
+          <div class="work-dot" data-idx="1"></div>
+          <div class="work-dot" data-idx="2"></div>
+          <div class="work-dot" data-idx="3"></div>
+        </div>
+
+      </div><!-- /sticky -->
+    </div><!-- /scroll-container -->
+  </section>
+
+  <section id="testimonials">
+    <div class="testimonials-sticky">
+      <p class="section-label">• Testimonials</p>
+      <h2 class="testimonials-title">
+        TRUST BUILT,<br>WORDS EARNED
+      </h2>
+
+      <div class="testimonials-slider">
+        <div class="t-card" data-index="0" style="background:#dbeafe">
+          <span class="quote">"</span>
+          <p class="quote-text">In the 3 years of being a colleague, Ajay has proven to be an extremely pleasant and motivated individual. He has set up structures and systems within the organisation that has significantly helped cross-team functionality and has always added an exceptionally creative flair to all the projects he's taken on.</p>
+          <p class="client-name">HARSHITHA GOWDA</p>
+          <p class="client-role">Lead - Content Strategy</p>
+        </div>
+
+        <div class="t-card" data-index="1" style="background:#d1fae5">
+          <span class="quote">"</span>
+          <p class="quote-text">Outstanding video production quality. Our channel grew 10x under his leadership.</p>
+          <p class="client-name">PRIYA MEHTA</p>
+          <p class="client-role">Content Director</p>
+        </div>
+
+        <div class="t-card" data-index="2" style="background:#fce7f3">
+          <span class="quote">"</span>
+          <p class="quote-text">Ajay's creativity, dedication, and hard work have made a lasting impact on our team. Thank you for always stepping up, supporting others, and giving your best in every situation.</p>
+          <p class="client-name">ADARSH NAYAK</p>
+          <p class="client-role">Content Coordinator (SSLC)</p>
+        </div>
+
+        <div class="t-card" data-index="3" style="background:#fef9c3">
+          <span class="quote">"</span>
+          <p class="quote-text">Highly professional. Our Instagram reels went viral thanks to Ajay's work!</p>
+          <p class="client-name">SNEHA KAPOOR</p>
+          <p class="client-role">Marketing Head</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 6: COMPANIES ═══════════ -->
+  <section id="companies">
+    <p class="companies-label reveal">• Work with</p>
+    <h2 class="companies-heading reveal reveal-delay-1">Companies I've<br>Worked With</h2>
+
+    <div class="companies-grid">
+      <a href="siff-ventures.html" class="company-card reveal">
+        <span class="company-name">SIFF Ventures</span>
+      </a>
+      <a href="kan-sports.html" class="company-card reveal reveal-delay-1">
+        <span class="company-name">Kan Sports</span>
+      </a>
+      <a href="blueletter.html" class="company-card reveal reveal-delay-2">
+        <span class="company-name">BlueLetter</span>
+      </a>
+      <a href="kan-group.html" class="company-card reveal">
+        <span class="company-name">Kan Group</span>
+      </a>
+      <a href="malik-venture.html" class="company-card reveal reveal-delay-1">
+        <span class="company-name">Radix Healthcare</span>
+      </a>
+      <a href="cameraworx.html" class="company-card reveal reveal-delay-2">
+        <span class="company-name">Cameraworx</span>
+      </a>
+      <a href="imagineindia.html" class="company-card reveal">
+        <span class="company-name">ImagineIndia</span>
+      </a>
+      <a href="contact.html" class="company-card cta-card reveal reveal-delay-1">
+        <span class="company-name">Let's Talk</span>
+        <div class="cta-card-arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 7: FOOTER ═══════════ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/ajay-bhatt-8258309a/" target="_blank" rel="noopener" class="footer-social-link" id="footer-linkedin">
+          LINKEDIN <span class="arrow">↗</span>
+        </a>
+
+        <a href="resume.html" target="_self" rel="noopener" class="footer-social-link" id="footer-resume">
+          RESUME <span class="arrow">↗</span>
+        </a>
+        <a href="mailto:abhatt080@gmail.com" class="footer-social-link" id="footer-email">
+          EMAIL <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="footer-cta-center">
+        <div class="lets-talk-wrap">
+          <span class="lets-talk-text">LET'S</span>
+          <a href="contact.html" class="lets-talk-badge" id="footer-cta-badge" title="Contact Ajay">↘</a>
+          <span class="lets-talk-text">TALK</span>
+        </div>
+      </div>
+
+      <div class="footer-tagline" style="text-align: center; margin: 0 auto; width: 100%;">
+        Let's create something amazing together and turn ideas into impactful content.
+      </div>
+    </div>
+
+    <div class="footer-nav-strip">
+      <nav class="footer-nav-links" aria-label="Footer navigation">
+        <a href="index.html" id="footer-home">HOME</a>
+        <a href="work.html" id="footer-work">WORK</a>
+        <a href="photography.html" id="footer-photography">PHOTOGRAPHY</a>
+        <a href="contact.html" id="footer-contact">CONTACT</a>
+      </nav>
+      <span class="footer-copy">© 2026 Ajay Bhatt. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Mobile Menu ── */
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    /* ── Scroll Reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* ── Animated Counters ── */
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.done) {
+          e.target.dataset.done = '1';
+          animateCounter(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(el => counterObserver.observe(el));
+
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      const isFloat = !Number.isInteger(target);
+
+      function update(ts) {
+        const elapsed = ts - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = eased * target;
+        el.textContent = (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(update);
+    }
+
+
+
+    /* ── Featured Work — Sticky Scroll Slider ── */
+    (function () {
+      const scrollContainer = document.getElementById('workScrollContainer');
+      const sticky = document.getElementById('workSticky');
+      const dots = document.querySelectorAll('#workDots .work-dot');
+      if (!scrollContainer || !sticky) return;
+
+      const CARDS = 4;
+      const BG_COLORS = [
+        '#e3f4ef', // pale teal-green    — card 1 (SSLC)
+        '#f0e8e3', // warm cream-orange  — card 2 (Science)
+        '#e3e6f8', // cool blue-purple   — card 3 (Commerce)
+        '#f5f0dc', // warm yellow        — card 4 (Siff Young Artiste)
+      ];
+      const cardEls = Array.from({ length: CARDS }, (_, i) => document.getElementById('wcard-' + i));
+
+      // Measure card width AFTER paint so clamp() resolves
+      let cardW = 0;
+
+      function measure() {
+        cardW = cardEls[0] ? cardEls[0].offsetWidth : window.innerWidth * 0.52;
+      }
+      measure();
+      window.addEventListener('resize', () => { measure(); onScroll(); }, { passive: true });
+
+      function layoutCards(activeFloat) {
+        const gap = Math.max(20, window.innerWidth * 0.03);
+        const spacing = cardW * 0.86 + gap;
+        cardEls.forEach((card, i) => {
+          if (!card) return;
+          const dist = i - activeFloat;
+          const absDist = Math.abs(dist);
+
+          // Scale: 1 when active, shrinks for neighbours
+          const scale = Math.max(0.68, 1 - absDist * 0.14);
+
+          // Horizontal offset from centre
+          const xOff = dist * spacing;
+
+          // Slight vertical drop for non-active
+          const yOff = absDist * 10;
+
+          // Opacity
+          const opacity = Math.max(0.25, 1 - absDist * 0.28);
+
+          // z-index highest at active
+          const zIndex = Math.round(20 - Math.abs(dist) * 3);
+
+          // Apply: card is anchored at left:50%, top:50% with base translate(-50%,-50%)
+          card.style.transform = `translateX(calc(-50% + ${xOff}px)) translateY(calc(-50% + ${yOff}px)) scale(${scale})`;
+          card.style.opacity = opacity;
+          card.style.zIndex = zIndex;
+          card.style.transition = 'transform 0.1s linear, opacity 0.1s linear';
+        });
+      }
+
+      function interpolateHex(a, b, t) {
+        const h = hex => [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
+        const [r1, g1, b1] = h(a), [r2, g2, b2] = h(b);
+        return `rgb(${Math.round(r1 + (r2 - r1) * t)},${Math.round(g1 + (g2 - g1) * t)},${Math.round(b1 + (b2 - b1) * t)})`;
+      }
+
+      function updateAccents(af) {
+        const lo = Math.min(CARDS - 2, Math.floor(af));
+        const hi = lo + 1;
+        const t = af - lo;
+        sticky.style.backgroundColor = interpolateHex(BG_COLORS[lo], BG_COLORS[hi], t);
+        dots.forEach((d, i) => d.classList.toggle('active', i === Math.round(af)));
+      }
+
+      function onScroll() {
+        const top = scrollContainer.getBoundingClientRect().top + window.scrollY;
+        const scrollable = scrollContainer.offsetHeight - window.innerHeight;
+        if (scrollable <= 0) return;
+        const scrolled = Math.max(0, Math.min(scrollable, window.scrollY - top));
+        const af = (scrolled / scrollable) * (CARDS - 1);
+        layoutCards(af);
+        updateAccents(af);
+      }
+
+      sticky.style.backgroundColor = BG_COLORS[0];
+      // Wait for fonts/images to settle then measure
+      requestAnimationFrame(() => { measure(); layoutCards(0); });
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* ── Testimonials Scroll-Linked Slider ── */
+    (function () {
+      const section = document.getElementById('testimonials');
+      const cards = document.querySelectorAll('.t-card');
+      const totalCards = cards.length;
+      if (!section || totalCards === 0) return;
+
+      let scrollTimeout;
+
+      function updateTestimonials() {
+        const rect = section.getBoundingClientRect();
+        const sectionHeight = section.offsetHeight;
+
+        // 0 to 1 progress as section scrolls
+        let progress = -rect.top / (sectionHeight - window.innerHeight);
+        progress = Math.max(0, Math.min(1, progress));
+
+        // Smooth continuous progress from 0 to totalCards - 1
+        const scrollIndex = progress * (totalCards - 1);
+
+        // Dynamic radius for the half-circle arc
+        const R = Math.max(window.innerWidth * 0.6, 500);
+
+        cards.forEach((card, i) => {
+          // offset is 0 for the active centered card
+          const offset = i - scrollIndex;
+
+          // Math for half-circle arc: 60 degrees spread per card
+          const angleDeg = offset * 60;
+          const angleRad = angleDeg * Math.PI / 180;
+
+          const x = R * Math.sin(angleRad);
+          const y = R * (1 - Math.cos(angleRad));
+
+          card.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${angleDeg}deg)`;
+
+          // Fade out much faster so parked cards are completely invisible
+          const opacity = 1 - Math.abs(offset) * 1.5;
+          card.style.opacity = Math.max(0, opacity);
+
+          // Layer correctly so active card is fully on top
+          card.style.zIndex = Math.round(100 - Math.abs(offset) * 10);
+
+          // Only the active/near-active card is clickable
+          card.style.pointerEvents = Math.abs(offset) < 0.5 ? 'auto' : 'none';
+        });
+
+        // Scroll snapping logic
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          // Check if we are inside the testimonials section
+          if (progress > 0 && progress < 1) {
+            const nearestIndex = Math.round(scrollIndex);
+            // If we are not perfectly snapped to a card
+            if (Math.abs(scrollIndex - nearestIndex) > 0.02) {
+              const targetProgress = nearestIndex / (totalCards - 1);
+              const sectionTopAbs = window.scrollY + section.getBoundingClientRect().top;
+              const targetScroll = sectionTopAbs + targetProgress * (sectionHeight - window.innerHeight);
+              window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+            }
+          }
+        }, 150); // wait 150ms after scroll stops to snap
+      }
+
+      window.addEventListener('scroll', updateTestimonials, { passive: true });
+      window.addEventListener('resize', updateTestimonials, { passive: true });
+
+      // Initialize positions
+      updateTestimonials();
+    })();
+  </script>
+<script src="channel-data.js"></script>
+</body>
+
+</html>

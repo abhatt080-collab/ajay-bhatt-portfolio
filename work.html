@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work | Ajay Bhatt</title>
+  <meta name="description"
+    content="Portfolio of Ajay Bhatt — 10+ years of content management across SIFF Ventures, Kan Sports, Cameraworx, and more.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .work-section {
+      padding: 4rem 5% 8rem;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .work-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border);
+      box-shadow: 0 25px 60px var(--shadow);
+    }
+
+    .work-card-top {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--card2), var(--bg3));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-card-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+    }
+
+    .work-company {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+
+    .work-dates {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .work-card-body {
+      padding: 1.5rem 2rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .work-role {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .work-role i {
+      color: var(--gold);
+    }
+
+    .work-desc {
+      color: var(--gray);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .work-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(240, 165, 0, 0.08);
+      line-height: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">AB.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="photography.html">Photography</a></li>
+      <li><a href="contact.html" class="btn btn-gold" style="padding:0.5rem 1.5rem;border-radius:50px;">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a><a href="work.html">Work</a><a href="photography.html">Photography</a><a
+      href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-hero">
+    <div>
+      <div class="section-tag reveal">Portfolio</div>
+      <h1 class="reveal">My <span style="color:var(--gold)">Work</span></h1>
+      <p class="reveal" style="color:var(--gray);margin-top:1rem;">A decade of content, creativity, and growth across
+        industries.</p>
+    </div>
+  </div>
+
+  <section class="work-section">
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">01</div>
+          <div class="work-company">SIFF Ventures</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> Aug 2022 – Present</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-briefcase"></i> Content Manager</div>
+          <p class="work-desc">Built and scaled 4 educational YouTube channels from inception to <span
+              data-channel="combined" data-stat="total_subscribers">2.2M+</span> combined subscribers — leading a full
+            content team, developing strategies, managing productions, and driving viewership growth of <span
+              data-channel="combined" data-stat="total_views">272M+</span> views.</p>
+          <a href="siff-ventures.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">02</div>
+          <div class="work-company">Kan Sports</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> Aug 2021 – Jul 2022</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-briefcase"></i> Content Developer</div>
+          <p class="work-desc">Managed end-to-end digital content and social media operations for Kan Sports World
+            Entertainment Pvt. Ltd. — including the Handball Premier League (HPL). Led a 6-member content team handling
+            YouTube, Instagram, Facebook, PR strategy, and complete video production workflow.</p>
+          <a href="kan-sports.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">03</div>
+          <div class="work-company">BlueLetter</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> Feb 2021 – Aug 2021</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-briefcase"></i> Content Creator</div>
+          <p class="work-desc">Shot, scripted, edited, and delivered promotional videos and campaign photography for Blueletter Marketing's clients — including LP Hotel, Ramada Hotel, Salvus Hotel, Kothli Hills, Caya Bikes, Antalya, Dehradun, Florona, Shri Radja Brij Vasundhara, and TDI. Also produced animated videos and managed social media content support.</p>
+          <a href="blueletter.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">04</div>
+          <div class="work-company">Kan Group</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> Jan 2020 – Jan 2021</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-briefcase"></i> Content Creator</div>
+          <p class="work-desc">Handled product photography and videography with models for Kanify's e-commerce listings on their website, Amazon, and Flipkart. Also produced event-based photo and video content, managed social media planning, and supported marketing coordination for campaign requirements.</p>
+          <a href="kan-group.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">05</div>
+          <div class="work-company">Radix Healthcare</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> Feb 2019 – Dec 2019</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-briefcase"></i> Photographer & Videographer</div>
+          <p class="work-desc">Provided professional photography and videography services, capturing brand stories
+            through compelling visual media for corporate and event clients.</p>
+          <a href="malik-venture.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">06</div>
+          <div class="work-company">Cameraworx</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> 2016 – 2022</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-camera"></i> Sports Photographer</div>
+          <p class="work-desc">Official sports photographer at Pro Kabaddi League, Premier Badminton League, TNPL, and
+            multiple national & international sporting events.</p>
+          <a href="cameraworx.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <div class="work-number">07</div>
+          <div class="work-company">ImagineIndia</div>
+          <div class="work-dates"><i class="fas fa-calendar"></i> 2018 – 2019</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-role"><i class="fas fa-camera"></i> Photographer</div>
+          <p class="work-desc">Handled prestigious corporate shoots including AAI Magazine (launched by PM Modi), US
+            Kids Golf, NTPC, and NHPC corporate photography projects.</p>
+          <a href="imagineindia.html" class="btn btn-gold">View Work <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">AB.</div>
+        <p>Content Manager with 10+ years of experience building digital channels and creating impactful media.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          <a href="mailto:abhatt080@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="photography.html">Photography</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="siff-ventures.html">SIFF Ventures</a></li>
+          <li><a href="kan-sports.html">Kan Sports</a></li>
+          <li><a href="cameraworx.html">Cameraworx</a></li>
+          <li><a href="imagineindia.html">ImagineIndia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ajay Bhatt. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+  <script src="channel-data.js"></script>
+</body>
+
+</html>

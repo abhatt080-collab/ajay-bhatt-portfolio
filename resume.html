@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Ajay Bhatt</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --res-orange: #ff5c00;
+      --res-bg: #0d0d1a;
+      --res-cream: #f5f0e8;
+      --res-gray: rgba(255, 255, 255, 0.7);
+    }
+    
+    body.resume-page {
+      background: var(--res-bg);
+      color: var(--res-cream);
+      font-family: 'Barlow Condensed', sans-serif;
+      line-height: 1.6;
+    }
+    
+    .navbar, .mobile-menu, footer {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .resume-wrapper {
+      max-width: 1200px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 120px 40px 60px;
+    }
+
+    /* ── Hero ── */
+    .res-hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+      padding: 60px 80px;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .res-hero-left {
+      flex: 0 0 380px;
+      order: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 450px;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .res-hero-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .res-hero-right {
+      flex: 1;
+      text-align: left;
+      order: 1;
+    }
+    .res-hero h1 {
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      text-align: left;
+    }
+    .res-title {
+      font-size: 1.5rem;
+      color: var(--res-orange);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    .res-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--res-gray);
+      margin-bottom: 2.5rem;
+    }
+    .res-contact a {
+      color: inherit;
+      transition: color 0.3s;
+    }
+    .res-contact a:hover {
+      color: var(--res-orange);
+    }
+    .btn-orange-filled {
+      display: inline-block;
+      background: var(--res-orange);
+      color: #000 !important;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-orange-filled:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,92,0,0.3);
+    }
+    .btn-orange-outline {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid var(--res-orange);
+      color: var(--res-orange) !important;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .btn-orange-outline:hover {
+      background: var(--res-orange);
+      color: #000 !important;
+    }
+
+    /* ── Sections ── */
+    .res-section {
+      margin-bottom: 4rem;
+    }
+    .res-label {
+      font-size: 1.1rem;
+      color: var(--res-orange);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+    .res-heading {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .res-text {
+      font-size: 1.3rem;
+      color: var(--res-gray);
+      line-height: 1.7;
+    }
+
+    /* ── Grids ── */
+    .res-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .res-pill {
+      background: rgba(255,92,0,0.08);
+      border: 1px solid rgba(255,92,0,0.3);
+      color: var(--res-cream);
+      border-radius: 50px;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    
+    .res-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* ── Timeline ── */
+    .res-timeline {
+      border-left: 2px solid var(--res-orange);
+      padding-left: 2rem;
+      margin-left: 10px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.48rem;
+      top: 0.4rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--res-orange);
+      border: 3px solid var(--res-bg);
+    }
+    .tl-role {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+    .tl-company {
+      font-size: 1.3rem;
+      color: var(--res-gray);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+    .tl-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .tl-date {
+      color: var(--res-orange);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+    .tl-badge {
+      background: var(--res-orange);
+      color: #000;
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .tl-bullets {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tl-bullets li {
+      font-size: 1.2rem;
+      color: var(--res-gray);
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .tl-bullets li::before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      color: var(--res-orange);
+    }
+    .tl-stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tl-stat-box {
+      background: rgba(255,92,0,0.08);
+      border: 1px solid rgba(255,92,0,0.2);
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: var(--res-cream);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* ── Cards ── */
+    .res-card {
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid var(--res-orange);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+    .res-card-role {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--res-cream);
+    }
+    .res-card-company {
+      font-size: 1.1rem;
+      color: var(--res-gray);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .res-card-date {
+      color: var(--res-orange);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* ── Let's Connect Footer ── */
+    .res-connect {
+      text-align: center;
+      padding: 5rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 3rem;
+    }
+    .res-connect h2 {
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 2px;
+    }
+    .res-connect-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Social Icons ── */
+    .res-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,92,0,0.3);
+      color: var(--res-cream);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    .res-social-icon:hover {
+      background: var(--res-orange);
+      border-color: var(--res-orange);
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .res-hero {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+      }
+      .res-hero-left {
+        flex: auto;
+      }
+      .res-hero-left img {
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        margin: 0 auto;
+      }
+      .res-hero-right {
+        text-align: center;
+      }
+      .res-hero h1, .res-title {
+        text-align: center;
+      }
+      .res-contact {
+        justify-content: center;
+      }
+      .res-grid-2 { grid-template-columns: 1fr; }
+      .res-pill-grid { grid-template-columns: 1fr 1fr; }
+      .tl-stats { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body class="resume-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">AB.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="photography.html">Photography</a></li>
+      <li><a href="contact.html" class="btn btn-gold" style="padding:0.5rem 1.5rem;border-radius:50px;">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a><a href="work.html">Work</a><a href="photography.html">Photography</a><a href="contact.html">Contact</a>
+  </div>
+
+  <div class="resume-wrapper">
+    
+    <!-- HERO -->
+    <div class="res-hero">
+      <div class="res-hero-left">
+        <img src="hero-photo-1.png" alt="Ajay Bhatt">
+      </div>
+      <div class="res-hero-right">
+        <h1>AJAY BHATT</h1>
+        <div class="res-title">Content Marketing Manager | Video Producer | YouTube Growth & AI Workflow Specialist</div>
+        <div class="res-contact">
+          <span>📧 <a href="mailto:abhatt080@gmail.com">abhatt080@gmail.com</a></span>
+          <span>📱 +91 8851218461</span>
+          <span>📍 New Delhi / Bengaluru | Remote / Hybrid Ready</span>
+          <span>🔗 <a href="https://www.linkedin.com/in/ajay-bhatt-8258309a/" target="_blank">linkedin.com/in/ajay-bhatt-8258309a/</a></span>
+        </div>
+        <a href="Ajay_Bhatt_Resume.pdf" target="_blank" class="btn-orange-filled">DOWNLOAD RESUME ↓</a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="res-section">
+      <div class="res-label">• About</div>
+      <div class="res-heading">PROFESSIONAL SUMMARY</div>
+      <div class="res-text">
+        Video-first Content Marketing and Production Manager with 10+ years of experience creating social, YouTube, website, campaign, and event-led video content across education, sports, healthcare, corporate, and digital media. Experienced in end-to-end video production, platform-specific format selection, short-form content strategy, brand/QC compliance, team leadership, and performance-focused content planning. Hands-on with Adobe Creative Cloud, Canva, OBS, AI creative tools, and automation workflows.
+      </div>
+    </div>
+
+    <!-- CORE SKILLS -->
+    <div class="res-section">
+      <div class="res-label">• Skills</div>
+      <div class="res-heading">CORE SKILLS</div>
+      <div class="res-pill-grid">
+        <div class="res-pill">🎬 Video Production</div>
+        <div class="res-pill">📱 Platform Strategy</div>
+        <div class="res-pill">🎨 Adobe Creative Cloud</div>
+        <div class="res-pill">🤖 AI & Automation</div>
+        <div class="res-pill">📊 Analytics & Optimization</div>
+        <div class="res-pill">📋 Project Management</div>
+        <div class="res-pill">🎯 Marketing Collaboration</div>
+        <div class="res-pill">✅ Brand & Quality</div>
+        <div class="res-pill">👥 Team Leadership</div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="res-section">
+      <div class="res-label">• Experience</div>
+      <div class="res-heading">PROFESSIONAL EXPERIENCE</div>
+      
+      <div class="res-timeline">
+        
+        <!-- Job 1 -->
+        <div class="timeline-item">
+          <div class="tl-role">CONTENT MANAGER</div>
+          <div class="tl-company">SIFF VENTURES PVT. LTD.</div>
+          <div class="tl-meta">
+            <span class="tl-date">APR 2025 – PRESENT | BENGALURU</span>
+            <span class="tl-badge">CURRENT ROLE</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Lead video content planning, production workflows, QC, and delivery for education and entertainment YouTube channels</li>
+            <li>Manage an 18-member production team — editors, graphic designers, camera operators, and studio crew</li>
+            <li>Create campaign-ready video assets, short-form clips, thumbnails, and promotional creatives</li>
+            <li>Build SOPs, training checklists, MoMs, trackers, and dashboards</li>
+            <li>Train 30+ Online Lecture Faculty on camera operations, OBS Studio, Zoom, and production standards</li>
+            <li>Use AI and automation — n8n pipelines, prompt-based content generation, voice/image workflows</li>
+            <li>Managed 11 channels: <span data-channel="combined" data-stat="total_subscribers">2.23M+</span> subscribers, <span data-channel="combined" data-stat="total_videos">9,000+</span> videos, <span data-channel="combined" data-stat="total_views">272M+</span> views</li>
+          </ul>
+          <div class="tl-stats">
+            <div class="tl-stat-box">📊 <span data-channel="combined" data-stat="total_subscribers">2.23M+</span> Subscribers</div>
+            <div class="tl-stat-box">🎬 <span data-channel="combined" data-stat="total_videos">9,000+</span> Videos</div>
+            <div class="tl-stat-box">👁️ <span data-channel="combined" data-stat="total_views">272M+</span> Views</div>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item">
+          <div class="tl-role">SENIOR CONTENT DEVELOPER</div>
+          <div class="tl-company">SIFF VENTURES — PARIKSHE SSLC</div>
+          <div class="tl-meta">
+            <span class="tl-date">AUG 2022 – MAR 2025 | BENGALURU</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Managed end-to-end content calendars, video production tracking, MoMs, QC systems, and delivery workflows</li>
+            <li>Scaled production from few hundred to <span data-channel="sslc" data-stat="videos">2,700+</span> videos through structured SOPs</li>
+            <li>Parikshe SSLC: <span data-channel="sslc" data-stat="subscribers">265K</span> subscribers, <span data-channel="sslc" data-stat="videos">2,781</span> videos, <span data-channel="sslc" data-stat="views">29.8M+</span> views</li>
+            <li>Led 7-member creative team + trained 20+ on-camera instructors</li>
+          </ul>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="timeline-item">
+          <div class="tl-role">CONTENT DEVELOPER</div>
+          <div class="tl-company">KAN SPORTS</div>
+          <div class="tl-meta">
+            <span class="tl-date">AUG 2021 – JUL 2022</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Managed content roadmaps, client briefs, delivery trackers, and performance dashboards for sports and marketing content</li>
+            <li>Worked with design, marketing, and product teams for campaign assets</li>
+          </ul>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="timeline-item">
+          <div class="tl-role">CONTENT CREATOR</div>
+          <div class="tl-company">BLUELETTER</div>
+          <div class="tl-meta">
+            <span class="tl-date">FEB 2021 – AUG 2021</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Shot, scripted, edited, and delivered promotional videos and campaign photography</li>
+            <li>Managed content calendars and social media support assets</li>
+          </ul>
+        </div>
+
+        <!-- Job 5 -->
+        <div class="timeline-item">
+          <div class="tl-role">CONTENT CREATOR</div>
+          <div class="tl-company">KAN GROUP</div>
+          <div class="tl-meta">
+            <span class="tl-date">JAN 2020 – JAN 2021</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Produced event-based photo and video content</li>
+            <li>Handled social media planning and marketing coordination</li>
+          </ul>
+        </div>
+
+        <!-- Job 6 -->
+        <div class="timeline-item">
+          <div class="tl-role">PHOTOGRAPHER & VIDEOGRAPHER</div>
+          <div class="tl-company">RADIX HEALTHCARE</div>
+          <div class="tl-meta">
+            <span class="tl-date">FEB 2019 – DEC 2019</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Shot corporate, PR, healthcare, hospitality, and branding content</li>
+            <li>Clients: Radix Healthcare, Anardana, Woodapple Residency, Harvin Academy</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AI CREATIVE WORK -->
+    <div class="res-section">
+      <div class="res-label">• Innovation</div>
+      <div class="res-heading">AI CREATIVE WORK</div>
+      <div class="res-card">
+        <div class="res-card-role">FOUNDER & CONTENT DIRECTOR</div>
+        <div class="res-card-company">DIVYA DEV LOK — AI MEDIA STARTUP</div>
+        <div class="tl-meta">
+          <span class="res-card-date">MAY 2026 – PRESENT</span>
+          <span class="tl-badge">AI PROJECT</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Founded AI-powered devotional media project with automated content workflows</li>
+          <li>Built 14-agent AI production pipeline using n8n, Gemini, ElevenLabs, Imagen, D-ID, Google Drive/Sheets, Telegram</li>
+          <li>Designed human-in-the-loop quality controls for every production stage</li>
+          <li>Developed AI-assisted storytelling formats, voice workflows, and brand guardian checks</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SPORTS & EVENT PRODUCTION -->
+    <div class="res-section">
+      <div class="res-label">• Field Work</div>
+      <div class="res-heading">SPORTS & EVENT PRODUCTION</div>
+      <div class="res-grid-2">
+        
+        <div class="res-card">
+          <div class="res-card-role">🏅 SPORTS PHOTOGRAPHER</div>
+          <div class="res-card-company">CAMERAWORX</div>
+          <div class="res-card-date">2016 – 2022</div>
+          <ul class="tl-bullets">
+            <li>Star Sports, Sony ESPN, Ten Sports, DA Sports</li>
+            <li>Pro Kabaddi League, Premier Badminton League, TNPL, Yonex Sunrise India Open, AIBA Women's World Boxing Championship, IIPKL, Hero Golf League, Cue Slam, Futsal</li>
+          </ul>
+        </div>
+
+        <div class="res-card">
+          <div class="res-card-role">📸 PHOTOGRAPHER</div>
+          <div class="res-card-company">IMAGINEINDIA / CAMTIME IMAGES</div>
+          <div class="res-card-date">2018 – 2019</div>
+          <ul class="tl-bullets">
+            <li>Published in AAI Magazine 2019</li>
+            <li>US Kids Golf 2019</li>
+            <li>Corporate shoots: NTPC, NHPC</li>
+            <li>Sports and lifestyle visual projects</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="res-section">
+      <div class="res-label">• Tech Stack</div>
+      <div class="res-heading">TOOLS & SOFTWARE</div>
+      <div class="res-pill-grid">
+        <div class="res-pill">Adobe Premiere Pro</div>
+        <div class="res-pill">After Effects</div>
+        <div class="res-pill">Audition</div>
+        <div class="res-pill">Media Encoder</div>
+        <div class="res-pill">Photoshop</div>
+        <div class="res-pill">Lightroom</div>
+        <div class="res-pill">Illustrator</div>
+        <div class="res-pill">Canva</div>
+        <div class="res-pill">Descript</div>
+        <div class="res-pill">OBS Studio</div>
+        <div class="res-pill">YouTube Studio</div>
+        <div class="res-pill">Google Workspace</div>
+        <div class="res-pill">Higgsfield AI</div>
+        <div class="res-pill">ElevenLabs</div>
+        <div class="res-pill">D-ID</div>
+        <div class="res-pill">Gemini / Imagen</div>
+        <div class="res-pill">n8n</div>
+        <div class="res-pill">Telegram Bot</div>
+        <div class="res-pill">Dashboards & Trackers</div>
+      </div>
+    </div>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <div class="res-section">
+      <div class="res-label">• Learning</div>
+      <div class="res-heading">EDUCATION & CERTIFICATIONS</div>
+      <div class="res-grid-2">
+        <div>
+          <div class="res-card" style="margin-bottom:1.5rem;">
+            <div class="res-card-role">🎓 M.A. — Mass Communication & Journalism</div>
+            <div class="res-card-company">IGNOU</div>
+            <div class="res-card-date">Pursuing, Expected 2026</div>
+          </div>
+          <div class="res-card">
+            <div class="res-card-role">🎓 B.A. — Mass Communication & Journalism</div>
+            <div class="res-card-company">ASMS, Mewar University</div>
+            <div class="res-card-date">2014 – 2017</div>
+          </div>
+        </div>
+        <div>
+          <div class="res-card">
+            <div class="res-card-role">📜 n8n Workflow Automation</div>
+            <div class="res-card-company">Udemy | Ongoing</div>
+            <ul class="tl-bullets" style="margin-top: 1rem;">
+              <li>Building AI agents and full workflow automation pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="res-section">
+      <div class="res-heading">LANGUAGES</div>
+      <div class="res-pill-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
+        <div class="res-pill">🇬🇧 English — Intermediate</div>
+        <div class="res-pill">🇮🇳 Hindi — Native</div>
+      </div>
+    </div>
+
+    <!-- LET'S CONNECT -->
+    <div class="res-connect">
+      <h2>LET'S CONNECT</h2>
+      <div class="res-connect-btns">
+        <a href="Ajay_Bhatt_Resume.pdf" target="_blank" class="btn-orange-filled">DOWNLOAD RESUME ↓</a>
+        <a href="https://www.linkedin.com/in/ajay-bhatt-8258309a/" target="_blank" class="btn-orange-outline">LINKEDIN ↗</a>
+        <a href="mailto:abhatt080@gmail.com" class="btn-orange-outline">EMAIL ↗</a>
+      </div>
+    </div>
+
+  </div> <!-- /resume-wrapper -->
+
+  <!-- GLOBAL FOOTER -->
+  <footer style="text-align: center; padding: 2rem 0;">
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+      <a href="https://www.linkedin.com/in/ajay-bhatt-8258309a/" target="_blank" class="res-social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/abhatt080?igsh=YzVpcTVjdjgxYm9l" target="_blank" class="res-social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="resume.html" target="_self" class="res-social-icon"><i class="far fa-file-alt"></i></a>
+      <a href="mailto:abhatt080@gmail.com" class="res-social-icon"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <div class="footer-bottom-bar" style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; text-align: center; color: var(--res-gray); font-size: 0.8rem;">
+      <div class="footer-copy">© 2026 Ajay Bhatt. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+<script src="channel-data.js"></script>
+</body>
+</html>

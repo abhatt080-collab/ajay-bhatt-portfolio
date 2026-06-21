@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Visual Portfolio | Ajay Bhatt</title>
+<meta name="description" content="Sports and corporate photography by Ajay Bhatt — PKL, PBL, TNPL, and prestigious corporate projects.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.photo-page { padding: 3rem 5% 8rem; }
+.photo-filters { display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+.filter-btn {
+  padding: 0.6rem 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50px;
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-btn.active, .filter-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+.masonry-grid {
+  columns: 4;
+  column-gap: 1.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.2rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.masonry-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="140"><text x="0" y="90" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.15)" transform="rotate(-28 120 70)">© Ajay Bhatt</text></svg>');
+  background-repeat: repeat;
+}
+.masonry-photo {
+  width: 100%;
+  background: var(--card2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgba(240,165,0,0.3);
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+.masonry-item:hover .masonry-photo { border-color: var(--border); }
+.masonry-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 12px;
+}
+.masonry-item:hover .masonry-overlay { opacity: 1; }
+.masonry-label { font-size: 0.75rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.2rem; }
+.masonry-caption { font-size: 0.8rem; color: var(--white); font-weight: 500; }
+.masonry-zoom { position: absolute; top: 1rem; right: 1rem; width: 34px; height: 34px; background: rgba(240,165,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-size: 0.8rem; opacity: 0; transition: opacity 0.3s; }
+.masonry-item:hover .masonry-zoom { opacity: 1; }
+
+@media (max-width: 1024px) { .masonry-grid { columns: 3; } }
+@media (max-width: 768px) { .masonry-grid { columns: 2; } }
+@media (max-width: 480px) { .masonry-grid { columns: 1; } }
+
+#blueletter {
+  columns: 3;
+  column-gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#blueletter .masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  width: 100%;
+}
+#blueletter .masonry-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid rgba(240,234,216,0.1);
+}
+@media (max-width: 1024px) { #blueletter { columns: 2; } }
+@media (max-width: 768px) { #blueletter { columns: 1; } }
+
+#cameraworx {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  max-width: 1200px !important;
+  margin: 32px auto 0 !important;
+}
+
+#cameraworx .masonry-item {
+  width: 100% !important;
+  display: block !important;
+  margin-bottom: 0 !important;
+}
+
+#cameraworx .masonry-item img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 1024px) {
+  #cameraworx { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  #cameraworx { grid-template-columns: 1fr !important; }
+}
+
+#independent {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+#independent .masonry-item {
+  width: 100% !important;
+  display: block !important;
+  margin-bottom: 0 !important;
+}
+#independent .masonry-item video,
+#independent .masonry-item img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 8px !important;
+}
+@media (max-width: 1024px) {
+  #independent { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  #independent { grid-template-columns: 1fr !important; }
+}
+
+.lightbox {
+  display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center;
+}
+.lightbox img {
+  max-width: 90%; max-height: 90%; border-radius: 8px; object-fit: contain;
+}
+.lightbox-close {
+  position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer;
+}
+
+.gallery-wrapper {
+  display: none;
+}
+.gallery-wrapper.active {
+  display: block;
+}
+</style>
+
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">AB.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="photography.html" class="active">Photography</a></li>
+    <li><a href="contact.html" class="btn btn-gold" style="padding:0.5rem 1.5rem;border-radius:50px;">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="work.html">Work</a><a href="photography.html">Photography</a><a href="contact.html">Contact</a>
+</div>
+<div class="page-hero">
+  <div>
+    <div class="section-tag reveal">Visual Work</div>
+    <h1 class="reveal">My Visual <span style="color:var(--gold)">Portfolio</span></h1>
+    <p class="reveal" style="color:var(--gray);margin-top:0.8rem;">Photography, Videography & Visual Work</p>
+  </div>
+</div>
+<section class="photo-page">
+  <div class="photo-filters reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="blueletter">Blueletter</button>
+    <button class="filter-btn" data-filter="cameraworx">Cameraworx</button>
+    <button class="filter-btn" data-filter="independent">Independent</button>
+  </div>
+  <div class="gallery-wrapper active" id="wrap-blueletter">
+  <div id="blueletter">
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-1.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-1" src="blueletter-portfolio/bl-video-1.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-2.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-2" src="blueletter-portfolio/bl-video-2.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-3.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-3" src="blueletter-portfolio/bl-video-3.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-4.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-4" src="blueletter-portfolio/bl-video-4.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-5.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-5" src="blueletter-portfolio/bl-video-5.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-6.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-6" src="blueletter-portfolio/bl-video-6.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-7.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-7" src="blueletter-portfolio/bl-video-7.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-8.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-8" src="blueletter-portfolio/bl-video-8.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-9.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-9" src="blueletter-portfolio/bl-video-9.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-10.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-10" src="blueletter-portfolio/bl-video-10.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-11.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-11" src="blueletter-portfolio/bl-video-11.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-12.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-12" src="blueletter-portfolio/bl-video-12.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-13.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-13" src="blueletter-portfolio/bl-video-13.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-14.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-14" src="blueletter-portfolio/bl-video-14.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-15.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-15" src="blueletter-portfolio/bl-video-15.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-16.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-16" src="blueletter-portfolio/bl-video-16.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-17.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-17" src="blueletter-portfolio/bl-video-17.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-18.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-18" src="blueletter-portfolio/bl-video-18.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-19.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-19" src="blueletter-portfolio/bl-video-19.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-20.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-20" src="blueletter-portfolio/bl-video-20.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-21.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-21" src="blueletter-portfolio/bl-video-21.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-22.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-22" src="blueletter-portfolio/bl-video-22.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-23.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-23" src="blueletter-portfolio/bl-video-23.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-24.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-24" src="blueletter-portfolio/bl-video-24.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-25.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-25" src="blueletter-portfolio/bl-video-25.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-26.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-26" src="blueletter-portfolio/bl-video-26.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-27.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-27" src="blueletter-portfolio/bl-video-27.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-28.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-28" src="blueletter-portfolio/bl-video-28.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-29.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-29" src="blueletter-portfolio/bl-video-29.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-30.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-30" src="blueletter-portfolio/bl-video-30.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-31.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-31" src="blueletter-portfolio/bl-video-31.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-32.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-32" src="blueletter-portfolio/bl-video-32.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-33.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-33" src="blueletter-portfolio/bl-video-33.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-34.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-34" src="blueletter-portfolio/bl-video-34.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-35.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-35" src="blueletter-portfolio/bl-video-35.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-36.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-36" src="blueletter-portfolio/bl-video-36.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-37.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-37" src="blueletter-portfolio/bl-video-37.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-38.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-38" src="blueletter-portfolio/bl-video-38.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-39.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-39" src="blueletter-portfolio/bl-video-39.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-40.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-40" src="blueletter-portfolio/bl-video-40.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-41.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-41" src="blueletter-portfolio/bl-video-41.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-42.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-42" src="blueletter-portfolio/bl-video-42.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-43.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-43" src="blueletter-portfolio/bl-video-43.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-44.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><video id="blueletter-video-44" src="blueletter-portfolio/bl-video-44.mp4" preload="metadata" controls></video></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-45.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-46.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-47.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-48.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-49.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-50.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-51.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-52.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-53.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-54.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-55.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-56.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="blueletter"><img src="blueletter-portfolio/bl-img-57.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+  </div>
+</div>
+<div class="gallery-wrapper" id="wrap-cameraworx">
+  <div id="cameraworx" style="margin-top: 32px;">
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-1.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+
+
+
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-2.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-3.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-4.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-5.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-6.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-7.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-8.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-9.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-10.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-11.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-12.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-13.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-14.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-15.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-16.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-17.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-18.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-19.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-20.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-21.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-22.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-23.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-24.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-25.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-26.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-27.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-28.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-29.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-30.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-31.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-32.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-33.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-34.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-35.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-36.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-37.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-38.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-39.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-40.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-41.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-42.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-43.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-44.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-45.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-46.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-47.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-48.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-49.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-50.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-51.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-52.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-53.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-54.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-55.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-56.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-57.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-58.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-59.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-60.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-61.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-62.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-63.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-64.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-65.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-66.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-67.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-68.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-69.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-70.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-71.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-72.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-73.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-74.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-75.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-76.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-77.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-78.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-79.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-80.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-81.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-82.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-83.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-84.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-85.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-86.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-87.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-88.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-89.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-90.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-91.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-92.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-93.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-94.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-95.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-96.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-97.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-98.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-99.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-100.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-101.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+    <div class="masonry-item" data-cat="cameraworx"><img src="cameraworx-portfolio/cw-img-102.jpg" style="width:100%; height:auto; display:block; border-radius:8px; cursor:pointer;" onclick="openLightbox(this.src)"></div>
+  </div>
+</div>
+
+<div class="gallery-wrapper" id="wrap-independent">
+<div id="independent">
+  <div class="masonry-item" data-cat="independent">
+    <video id="independent-video-1" src="independent-work/ind-video-1.mp4" preload="metadata" controls style="width:100%; height:auto; display:block; border-radius:8px;"></video>
+  </div>
+  <div class="masonry-item" data-cat="independent">
+    <video id="independent-video-2" src="independent-work/ind-video-2.mp4" preload="metadata" controls style="width:100%; height:auto; display:block; border-radius:8px;"></video>
+  </div>
+  <div class="masonry-item" data-cat="independent">
+    <video id="independent-video-3" src="independent-work/ind-video-3.mp4" preload="metadata" controls style="width:100%; height:auto; display:block; border-radius:8px;"></video>
+  </div>
+</div>
+</div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="logo">AB.</div><p>Content Manager with 10+ years of experience.</p><div class="social-icons"><a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-youtube"></i></a><a href="mailto:abhatt080@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="photography.html">Photography</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Work</h4><ul><li><a href="siff-ventures.html">SIFF Ventures</a></li><li><a href="kan-sports.html">Kan Sports</a></li><li><a href="cameraworx.html">Cameraworx</a></li><li><a href="imagineindia.html">ImagineIndia</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2024 Ajay Bhatt. All rights reserved.</p></div>
+</footer>
+<script src="main.js"></script>
+<script>
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const allWrappers = document.querySelectorAll('.gallery-wrapper');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+
+    allWrappers.forEach(wrapper => wrapper.classList.remove('active'));
+
+    if (filter === 'all') {
+      allWrappers.forEach(wrapper => wrapper.classList.add('active'));
+    } else {
+      const target = document.getElementById('wrap-' + filter);
+      if (target) target.classList.add('active');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+window.addEventListener('load', () => {
+  const hash = window.location.hash;
+  if (hash === '#blueletter') {
+    const btn = document.querySelector('.filter-btn[data-filter="blueletter"]');
+    if(btn) btn.click();
+  } else if (hash === '#cameraworx') {
+    const btn = document.querySelector('.filter-btn[data-filter="cameraworx"]');
+    if(btn) btn.click();
+  } else if (hash === '#independent') {
+    const btn = document.querySelector('.filter-btn[data-filter="independent"]');
+    if(btn) btn.click();
+  } else if (hash && hash.startsWith('#blueletter-video-')) {
+    const btn = document.querySelector('.filter-btn[data-filter="blueletter"]');
+    if(btn) btn.click();
+    setTimeout(() => {
+      const targetVideo = document.querySelector(hash);
+      if (targetVideo) {
+        targetVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetVideo.muted = false;
+        targetVideo.play();
+      }
+    }, 600);
+  }
+});
+// Auto thumbnail from middle frame for all videos
+document.querySelectorAll('#blueletter video').forEach(function(video) {
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  
+  video.addEventListener('loadedmetadata', function() {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    // Duration ka 25% frame pe jaao
+    video.currentTime = video.duration * 0.25;
+  });
+  
+  video.addEventListener('seeked', function handler() {
+    // Frame capture karo
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    var dataURL = canvas.toDataURL('image/jpeg', 0.8);
+    // Poster set karo
+    video.poster = dataURL;
+    // Video wapis 0 pe laao
+    video.currentTime = 0;
+    // Handler remove karo — sirf ek baar chalega
+    video.removeEventListener('seeked', handler);
+  });
+  
+  video.preload = 'metadata';
+  video.load();
+});
+</script>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+<script>
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  if (lb && lbImg) {
+    lbImg.src = src;
+    lb.style.display = 'flex';
+  }
+}
+</script>
+</body>
+</html>

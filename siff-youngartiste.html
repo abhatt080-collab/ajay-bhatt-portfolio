@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIFF Young Artiste | Ajay Bhatt</title>
+  <meta name="description"
+    content="SIFF Young Artiste — A comprehensive online learning platform nurturing young artists in music and dance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card-dark: #181818;
+      --white: #f0ece4;
+      --cream: #e8e2d5;
+      --orange: #ff5c00;
+      --orange-dark: #c9521f;
+      --gray: #888;
+      --light-bg: #f0efed;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: clip;
+      padding-top: 80px; /* Header offset */
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 2rem;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #f0a500;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-cta {
+      background: #ff5c00;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: white;
+      transition: all 0.3s;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.98);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu a {
+      color: white;
+      font-size: 1.8rem;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+
+    /* ─── HERO SECTION ─── */
+    .hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--orange);
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-subheading {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      line-height: 1.6;
+      color: #ccc;
+      max-width: 900px;
+      margin-bottom: 3rem;
+    }
+
+    .divider-line {
+      height: 2px;
+      width: 100%;
+      background: var(--orange);
+      opacity: 0.8;
+    }
+
+    /* ─── ABOUT SECTION ─── */
+    .about-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .about-desc {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.8;
+      color: #aaa;
+      max-width: 1000px;
+    }
+
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .stat-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--orange);
+    }
+
+    .stat-lbl {
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── CHANNELS GRID SECTION ─── */
+    .channels-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+    }
+
+    .channels-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    /* Card styling */
+    .channel-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .channel-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 12px 30px rgba(255, 92, 0, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .channel-icon {
+      font-size: 48px;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+
+    .channel-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.03em;
+    }
+
+    .channel-desc {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #999;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .channel-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.8rem;
+      border: 1.5px solid var(--orange);
+      color: var(--orange);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .channel-card:hover .channel-btn {
+      background: var(--orange);
+      color: white;
+    }
+
+    /* ─── CHANNEL STATS ─── */
+    .channel-stats-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    .channel-stats-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .channel-stat-col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .channel-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: #ff5c00;
+    }
+
+    .channel-stat-lbl {
+      font-size: 11px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #000;
+      padding: 6rem 2rem 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-top {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      margin-bottom: 6rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .footer-social-link {
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .footer-social-link:hover {
+      color: var(--orange);
+    }
+
+    .footer-social-link .arrow {
+      margin-left: 0.25rem;
+    }
+
+    .footer-cta-center {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .lets-talk-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .lets-talk-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 10vw, 8.5rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .lets-talk-badge {
+      width: clamp(80px, 15vw, 150px);
+      height: clamp(80px, 15vw, 150px);
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      text-decoration: none;
+      transition: transform 0.4s ease, background 0.3s;
+    }
+
+    .lets-talk-badge:hover {
+      transform: rotate(45deg) scale(1.05);
+      background: var(--orange-dark);
+    }
+
+    .footer-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      line-height: 1.5;
+      text-align: center;
+      color: #999;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-nav-strip {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+    }
+
+    .footer-nav-links {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .footer-nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .footer-nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .channels-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .footer-top {
+        gap: 3rem;
+      }
+
+      .footer-nav-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ─── INSTAGRAM FOLLOW BUTTON ─── */
+    .insta-follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 1.5px solid var(--orange);
+      color: var(--white);
+      padding: 0.8rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      margin-bottom: 2.5rem;
+    }
+
+    .insta-follow-btn:hover {
+      background: var(--orange);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 92, 0, 0.25);
+    }
+
+    .insta-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ─── MY CONTRIBUTION SECTION ─── */
+    .contribution-section {
+      background: var(--card-dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contribution-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .contribution-desc {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.8;
+      color: #aaa;
+      max-width: 1000px;
+      margin-bottom: 4rem;
+    }
+
+    .contribution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .contribution-box {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contribution-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange);
+      box-shadow: 0 10px 25px rgba(255, 92, 0, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .box-icon {
+      font-size: 36px;
+      margin-bottom: 1.2rem;
+      line-height: 1;
+    }
+
+    .box-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .box-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #999;
+    }
+
+    @media (max-width: 992px) {
+      .contribution-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contribution-grid {
+        grid-template-columns: 1fr;
+      }
+      .contribution-section {
+        padding: 4rem 1.5rem;
+      }
+    }
+  
+    .contact-links-footer { display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 320px; }
+    .contact-link-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--card-dark, #181818);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .contact-link-item:hover { border-color: rgba(255,92,0,0.5); transform: translateX(5px); }
+    .contact-link-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(255,92,0,0.15); display: flex; align-items: center; justify-content: center; color: #ff5c00; font-size: 1.1rem; flex-shrink: 0; }
+    .contact-link-text strong { display: block; font-size: 0.85rem; color: var(--white, #fff); }
+    .contact-link-text span { font-size: 0.75rem; color: var(--gray, #888); }
+
+  
+    .circle-socials { display: flex; gap: 16px; }
+    .circle-social-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3); background: transparent;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.2rem; text-decoration: none; transition: all 0.3s ease;
+    }
+    .circle-social-icon:hover {
+      border-color: #ff5c00; color: #ff5c00; transform: translateY(-3px);
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">AB.</a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="work.html" class="active">WORK</a></li>
+        <li><a href="photography.html">PHOTOGRAPHY</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">LET'S TALK</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="work.html" onclick="toggleMenu()">Work</a>
+    <a href="photography.html" onclick="toggleMenu()">Photography</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- ═══════════ HERO SECTION ═══════════ -->
+  <header class="hero">
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    <p class="section-tag">Featured Work</p>
+    <h1 class="hero-heading">SIFF YOUNG ARTISTE</h1>
+    <p class="hero-subheading">A comprehensive online learning platform nurturing young artists in music and dance through free tutorials, live classes, and expert mentorship.</p>
+    <a href="https://www.instagram.com/siff.youngartiste/" target="_blank" rel="noopener" class="insta-follow-btn">
+      <svg class="insta-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+      Follow on Instagram
+    </a>
+    <div class="divider-line"></div>
+  </header>
+
+  <!-- ═══════════ ABOUT SECTION ═══════════ -->
+  <section class="about-section">
+    <h2 class="about-heading">WHAT IS SIFF YOUNG ARTISTE?</h2>
+    <p class="about-desc">SIFF Young Artiste is a free online learning platform that offers music, dance, and instrument tutorials for students of all ages. With expert instructors and weekly live classes, SIFF Young Artiste nurtures the artiste in every student — completely free of charge.</p>
+    
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-val">8</span>
+        <span class="stat-lbl">YouTube Channels</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">1.8M+</span>
+        <span class="stat-lbl">Total Subscribers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">Free</span>
+        <span class="stat-lbl">Weekly Live Classes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MY CONTRIBUTION SECTION ═══════════ -->
+  <section class="contribution-section">
+    <div class="section-inner">
+      <h2 class="contribution-heading">MY CONTRIBUTION</h2>
+      <p class="contribution-desc">As a Senior Content Developer at SIFF Young Artiste, I played a key role in building and scaling multiple YouTube channels from the ground up. From conceptualizing shoots to directing on-ground production, I ensured every piece of content met the highest quality standards. My work spanned across video editing, shoot coordination, thumbnail strategy, and content planning — helping channels like SIFF Guitar and SIFF Keyboard grow to over 800K subscribers each.<br><br>Beyond YouTube, I produced several high-impact video reels for Instagram that went massively viral — generating millions of views and significantly boosting SIFF Young Artiste's social media presence across platforms.</p>
+      
+      <div class="contribution-grid">
+        <!-- Box 1 -->
+        <div class="contribution-box">
+          <div class="box-icon">🎬</div>
+          <h3 class="box-title">Video Production</h3>
+          <p class="box-desc">Shoots, editing & post-production for all 8 channels</p>
+        </div>
+        <!-- Box 2 -->
+        <div class="contribution-box">
+          <div class="box-icon">📱</div>
+          <h3 class="box-title">Viral Instagram Reels</h3>
+          <p class="box-desc">Created high-impact content that went viral with millions of views</p>
+        </div>
+        <!-- Box 3 -->
+        <div class="contribution-box">
+          <div class="box-icon">📊</div>
+          <h3 class="box-title">Channel Growth</h3>
+          <p class="box-desc">Scaled channels from zero to 800K+ subscribers through strategic content</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CHANNELS GRID SECTION ─── -->
+  <main class="channels-section">
+    <h2 class="channels-heading">ALL CHANNELS</h2>
+    
+    <div class="channels-grid">
+      <!-- Card 1 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🎸</div>
+          <h3 class="channel-name">SIFF GUITAR</h3>
+          <p class="channel-desc">Learn popular Hindi and English songs on guitar from expert instructors</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_guitar" data-stat="subscribers">818K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_guitar" data-stat="views">86,413,179</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_guitar" data-stat="videos">474</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffguitar" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🎹</div>
+          <h3 class="channel-name">SIFF KEYBOARD</h3>
+          <p class="channel-desc">Master keyboard and piano with beginner-friendly lessons, absolutely free</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_keyboard" data-stat="subscribers">737K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_keyboard" data-stat="views">129,490,140</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_keyboard" data-stat="videos">1,092</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffkeyboard" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🎤</div>
+          <h3 class="channel-name">SIFF HINDUSTANI VOCALS</h3>
+          <p class="channel-desc">Learn Hindustani classical vocals from experienced music teachers</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_hindustani" data-stat="subscribers">34.5K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_hindustani" data-stat="views">2,093,457</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_hindustani" data-stat="videos">274</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffhv" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🎵</div>
+          <h3 class="channel-name">SIFF SINGING</h3>
+          <p class="channel-desc">Embark on a musical journey and transform your singing passion into reality</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_singing" data-stat="subscribers">43.7K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_singing" data-stat="views">2,664,383</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_singing" data-stat="videos">134</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffsinging" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">💃</div>
+          <h3 class="channel-name">SIFF KATHAK</h3>
+          <p class="channel-desc">Learn the grace and beauty of Kathak dance from classical experts</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_kathak" data-stat="subscribers">50.2K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_kathak" data-stat="views">5,203,907</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_kathak" data-stat="videos">714</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@AnushkaChandak_Siffkathak" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🕺</div>
+          <h3 class="channel-name">SIFF DANCE</h3>
+          <p class="channel-desc">Free Bollywood dance tutorials and choreographies for all skill levels</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_dance" data-stat="subscribers">105K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_dance" data-stat="views">5,201,991</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_dance" data-stat="videos">80</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffdance" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🎶</div>
+          <h3 class="channel-name">SIFF LEARN ENGLISH SONGS</h3>
+          <p class="channel-desc">Master Western vocals and learn your favorite English songs with style</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_english" data-stat="subscribers">11.9K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_english" data-stat="views">1,389,853</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_english" data-stat="videos">538</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffenglishsongs" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="channel-card">
+        <div>
+          <div class="channel-icon">🎭</div>
+          <h3 class="channel-name">SIFF BOLLYWOOD DANCE</h3>
+          <p class="channel-desc">Learn trending Bollywood choreographies and dance performances</p>
+          <div class="channel-stats-divider"></div>
+          <div class="channel-stats-row">
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_bollywood" data-stat="subscribers">32.1K</span>
+              <span class="channel-stat-lbl">👥 Subscribers</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_bollywood" data-stat="views">5,101,203</span>
+              <span class="channel-stat-lbl">👁️ Total Views</span>
+            </div>
+            <div class="channel-stat-col">
+              <span class="channel-stat-num" data-channel="siff_bollywood" data-stat="videos">1,226</span>
+              <span class="channel-stat-lbl">🎬 Videos</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@siffyoungartiste" target="_blank" rel="noopener" class="channel-btn">Visit Channel →</a>
+      </article>
+    </div>
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <div class="footer-top">
+      <div class="circle-socials">
+        <a href="https://www.linkedin.com/in/ajay-bhatt-8258309a/" target="_blank" rel="noopener" class="circle-social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/abhatt080?igsh=YzVpcTVjdjgxYm9l" target="_blank" rel="noopener" class="circle-social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="resume.html" class="circle-social-icon"><i class="far fa-file-alt"></i></a>
+        <a href="mailto:abhatt080@gmail.com" class="circle-social-icon"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="footer-cta-center">
+        <div class="lets-talk-wrap">
+          <span class="lets-talk-text">LET'S</span>
+          <a href="contact.html" class="lets-talk-badge" id="footer-cta-badge" title="Contact Ajay">↘</a>
+          <span class="lets-talk-text">TALK</span>
+        </div>
+      </div>
+
+      <div class="footer-tagline">
+        Let's create something amazing together and turn ideas into impactful content.
+      </div>
+    </div>
+
+    <div class="footer-nav-strip">
+      <nav class="footer-nav-links" aria-label="Footer navigation">
+        <a href="index.html" id="footer-home">HOME</a>
+        <a href="work.html" id="footer-work">WORK</a>
+        <a href="photography.html" id="footer-photography">PHOTOGRAPHY</a>
+        <a href="contact.html" id="footer-contact">CONTACT</a>
+      </nav>
+      <span class="footer-copy">© 2026 Ajay Bhatt. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Mobile Menu ── */
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+<script src="channel-data.js"></script>
+</body>
+
+</html>
