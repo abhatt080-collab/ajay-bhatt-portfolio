@@ -131,3 +131,14 @@ window.addEventListener('load', () => {
   document.body.style.transition = 'opacity 0.4s ease';
 });
 document.body.style.opacity = '0';
+
+// ── BACK-FORWARD CACHE (bfcache) FIX ──
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+});
+
