@@ -135,9 +135,11 @@ document.body.style.opacity = '0';
 // ── BACK-FORWARD CACHE (bfcache) FIX ──
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
+    document.body.style.opacity = '1';
     document.querySelectorAll('.reveal').forEach(function(el) {
       el.style.opacity = '1';
       el.style.transform = 'none';
+      el.classList.add('active');
     });
   }
 });
